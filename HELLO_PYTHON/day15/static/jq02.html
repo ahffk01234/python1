@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.0.js"></script>
+<script type="text/javascript">
+function lotto(){
+	
+	var number = [];
+	
+	for(let i = 1; i <= 6; i++){
+		var rnd;
+		do{
+		rnd = Math.floor(Math.random()*45)+1;
+			
+		}while(number.includes(rnd));
+		
+		
+		number.push(rnd);
+		console.log(number);
+		
+		var cell = "#lo"+ i;
+		var cellId = $(cell);
+		
+		console.log(rnd);
+		cellId.text(rnd);
+	}
+}
+$(document).ready(function(){
+	$('#btn').click(function(){
+		lotto();
+	});
+});
+</script>
+</head>
+<body>
+<table border="1px">
+	<tr>
+		<td id="lo1">__</td>
+		<td id="lo2">__</td>
+		<td id="lo3">__</td>
+		<td id="lo4">__</td>
+		<td id="lo5">__</td>
+		<td id="lo6">__</td>
+	</tr>
+	<tr>
+		<td colspan="6">
+			<input type="button" id="btn" value="로또 생성하기" onclick="lotto()"/>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

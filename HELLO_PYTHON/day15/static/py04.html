@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<style type="text/css">
+#disp {
+	display: inline;
+}
+#itFirst, #itLast{
+	width: 30px;
+}
+
+</style>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td>첫별수 :</td>
+			<td><input type="text" id="itFirst"></td>
+		</tr>
+		<tr>
+			<td>끝별수 :</td>
+			<td><input type="text" id="itLast"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="별그리기" py-click="star()">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div id="disp"></div>
+			</td>
+		</tr>
+	</table>
+<py-script>
+	def star():
+		first = int(js.document.querySelector("#itFirst").value)
+		last = int(js.document.querySelector("#itLast").value)
+		result = ""
+		for i in range(first,last+1):
+			for k in range(0,i):
+				result += "*"
+			result += "<br/>"
+
+		js.document.querySelector("#disp").innerHTML = result
+</py-script>
+</body>
+</html>

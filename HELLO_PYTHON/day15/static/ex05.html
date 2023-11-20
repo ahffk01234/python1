@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+input[name='it']{
+	text-align: right;
+}
+td {
+   text-align: center;
+}
+
+
+</style>
+<script type="text/javascript">
+function num(event){
+   
+   var num = this.event.target.value;
+   var number = document.querySelector("input[name='it']");
+   
+   number.value += num;
+}
+
+function calling(){
+   var call = document.querySelector("input[name='it']");
+   alert(" Calling : " + call.value);
+   call.value = "";
+}
+</script>
+</head>
+<body>
+   <table border="1px">
+      <tr>
+         <td colspan="3"><input type="text" name="it"></td>
+      </tr>
+      <tr>
+         <td>
+            <input type="button" class="num" value="1" onclick="num()">
+         </td>
+         <td>
+            <input type="button" class="num" value="2"  onclick="num()">
+         </td>
+         <td>
+            <input type="button" class="num" value="3"  onclick="num()">
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <input type="button" class="num" value="4"  onclick="num()">
+         </td>
+         <td>
+            <input type="button" class="num" value="5"  onclick="num()">
+         </td>
+         <td>
+            <input type="button" class="num" value="6"  onclick="num()">
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <input type="button" class="num" value="7"  onclick="num()">
+         </td>
+         <td>
+            <input type="button" class="num" value="8"  onclick="num()">
+         </td>
+         <td>
+            <input type="button" class="num" value="9" onclick="num()">
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <input type="button" class="num" value="0" onclick="num()">
+         </td>
+         <td colspan="3">
+            <input type="button" class="num" value="CALL" onclick="calling()">
+         </td>
+      </tr>
+   </table>
+</body>
+</html>

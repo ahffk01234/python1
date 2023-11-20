@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function fn_circle(){
+	console.log("fn_circle");
+	var canvas = document.getElementById("can");
+	var ctx = canvas.getContext("2d");
+	ctx.beginPath();
+	ctx.arc(200,200,200,0,Math.PI*2);
+	ctx.strokeStyle = 'red';
+	ctx.fillStyle = 'red';
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+}
+function fn_square(){
+	var canvas = document.getElementById("can");
+	var square = canvas.getContext("2d");
+	square.beginPath();
+	square.strokeStyle = 'black';
+	square.stroke();
+	square.fillStyle = 'red';
+	square.fill();
+	square.fillRect(100,100,200,200);
+	square.closePath();
+}
+</script>
+</head>
+<body>
+CANVAS 
+<a href="javascript:fn_circle()">circle</a>
+<a href="javascript:fn_square()">square</a><br/>
+<canvas width="400px" height="400px" id="can"></canvas>
+</body>
+</html>

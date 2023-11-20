@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+input[name='it']{
+	text-align: right;
+}
+td {
+   text-align: center;
+}
+</style>
+<script src="jquery-3.7.0.js"></script>
+<script type="text/javascript">
+function num(str_new){
+	
+   console.log(str_new);
+   var number = $("input[name='it']").val();
+   
+   $("input[name='it']").val(number+str_new);
+}
+
+function calling(){
+   var call = $("input[name='it']");
+   alert(" Calling : " + call.val());
+   call.val("");
+}
+$(document).ready(function(){
+	$('.num').bind("click",function(){
+		num($(this).val());
+	});
+	
+	$('#btn').bind(function(){
+		calling();
+	});
+	
+});
+</script>
+</head>
+<body>
+   <table border="1px">
+      <tr>
+         <td colspan="3"><input type="text" name="it"></td>
+      </tr>
+      <tr>
+         <td>
+            <input type="button" class="num" value="1">
+         </td>
+         <td>
+            <input type="button" class="num" value="2">
+         </td>
+         <td>
+            <input type="button" class="num" value="3" >
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <input type="button" class="num" value="4" >
+         </td>
+         <td>
+            <input type="button" class="num" value="5" >
+         </td>
+         <td>
+            <input type="button" class="num" value="6" >
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <input type="button" class="num" value="7" >
+         </td>
+         <td>
+            <input type="button" class="num" value="8" >
+         </td>
+         <td>
+            <input type="button" class="num" value="9" >
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <input type="button" class="num" value="0">
+         </td>
+         <td colspan="3">
+            <input type="button" value="CALL" id="btn">
+         </td>
+      </tr>
+   </table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#it {
+	width: 30px;
+}
+
+td {
+	text-align: center;
+}
+</style>
+<script type="text/javascript">
+	function dan() {
+		var dan = document.querySelector("#it").value;
+		var gugu = document.querySelector(".disp");
+
+		var rst = "";
+		for (let i = 1; i < 9; i++) {
+			rst += dan + " * " + i + " = " + (dan * i) + "\n";
+		}
+		gugu.value = rst;
+	}
+</script>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td>출력단수 :</td>
+			<td><input type="text" id="it"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" value="출력하기"
+				onclick="dan()"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><textarea class="disp" rows="20" cols="20"></textarea>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

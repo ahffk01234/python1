@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function fn_mod() {
+		location.href = "emp_mod?e_id={{emp.e_id}}";
+	}
+	function fn_del() {
+		location.href = "delete?e_id={{emp.e_id}}";
+	}
+</script>
+</head>
+<body>
+	emp_detail
+	<table border=1>
+		<tr>
+			<th>사번</th>
+			<td>{{emp.e_id}}</td>
+		</tr>
+		<tr>
+			<th>이름</th>
+			<td>{{emp.e_name}}</td>
+		</tr>
+		<tr>
+			<th>성별</th>
+			<td>{{emp.gen}}</td>
+		</tr>
+		<tr>
+			<th>주소</th>
+			<td>{{emp.addr}}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="수정" onclick="fn_mod()">
+				<input type="button" value="삭제" onclick="fn_del()">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

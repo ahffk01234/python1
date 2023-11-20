@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#disp {
+	display: inline;
+}
+#itFirst, #itLast{
+	width: 30px;
+}
+
+</style>
+<script src="jquery-3.7.0.js"></script>
+<script type="text/javascript">
+	function star() {
+		var first = $("#itFirst").val();
+		var last = $("#itLast").val();
+	
+		var fir = parseInt(first);
+		var las = parseInt(last);
+		
+		var rst = "";
+		
+		for (let i = fir; i < las+1; i++) {
+			for(let k = 0; k < i; k++){
+				
+				rst += "*";
+			}
+			rst += "<br/>";
+		}
+		console.log(rst);
+		$("#disp").html(rst);
+	}
+	
+	$(document).ready(function(){
+		$('#btn').bind(function(){
+			dan();
+		});
+	});
+</script>
+</head>
+<body>
+	<table border=1px>
+		<tr>
+			<td>첫별수 :</td>
+			<td><input type="text" id="itFirst"></td>
+		</tr>
+		<tr>
+			<td>끝별수 :</td>
+			<td><input type="text" id="itLast"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" id="btn" value="별그리기" onclick="star()">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div id="disp"></div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

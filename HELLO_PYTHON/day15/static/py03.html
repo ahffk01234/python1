@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<style type="text/css">
+#it {
+	width: 30px;
+}
+
+td {
+	text-align: center;
+}
+
+
+</style>
+
+</head>
+<body>
+<table border="1px">
+	<tr>
+		<td>출력단수 :</td>
+		<td><input type="text" id="it"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="button" value="출력하기" py-click="dan()"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><textarea class="disp" rows="20" cols="20" style="whiteSpace:pre;"></textarea>
+		</td>
+	</tr>
+</table>
+<py-script>
+	def dan():
+		num = int(js.document.querySelector("#it").value)
+		disp = js.document.querySelector(".disp")
+
+		result = ""
+
+		for i in range(1,10):
+			result += str(num) + "*" + str(i) +" = " + str(num*i) + "\n"
+		disp.value = result
+		
+</py-script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border=1>
+<tr>
+	<td>e_id</td>
+	<td>e_name</td>
+	<td>gen</td>
+	<td>addr</td>
+</tr>
+{% for c in emps %}
+<tr>
+	<td>{{c['e_id']}}</td>
+	<td>{{c['e_name']}}</td>
+	<td>{{c['gen']}}</td>
+	<td>{{c['addr']}}</td>
+</tr>
+{% endfor%}
+</table>
+</body>
+</html>

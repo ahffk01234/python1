@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	MemList
+	<table border=1>
+		<tr>
+			<td>m_id</td>
+			<td>m_name</td>
+			<td>tel</td>
+			<td>address</td>
+		</tr>
+		{% for m in mem %}
+		<tr>
+			<td><a href="detail?e_id={{emp.e_id}}">{{m.m_id}}</a></td>
+			<td>{{m.m_name}}</td>
+			<td>{{m.tel}}</td>
+			<td>{{m.address}}</td>
+		</tr>
+		{% endfor%}
+</body>
+</html>

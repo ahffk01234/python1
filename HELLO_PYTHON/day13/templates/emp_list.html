@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border=1>
+<tr>
+	<td>e_id</td>
+	<td>e_name</td>
+	<td>gen</td>
+	<td>addr</td>
+</tr>
+{% for emp in list %}
+<tr>
+	<td><a href="detail?e_id={{emp.e_id}}">{{emp.e_id}}</a></td>
+	<td>{{emp.e_name}}</td>
+	<td>{{emp.gen}}</td>
+	<td>{{emp.addr}}</td>
+</tr>
+{% endfor%}
+</table>
+<a href="/emp_insert"><input type="button" value="추가"></a>
+</body>
+</html>

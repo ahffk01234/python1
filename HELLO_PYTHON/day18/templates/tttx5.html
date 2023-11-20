@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+var arr2d = [
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0]
+ ];
+
+   var flag_ox = true;
+   var flag_over = false;
+
+   function myrender() {
+      var img = document.getElementsByClassName("mimg");
+      for (var i = 0; i < 5; i++) {
+         for (var j = 0; j < 5; j++) {
+            if (arr2d[i][j] == 0) {
+               img[(5 * i) + j].src = '/static/0.png';
+            } else if (arr2d[i][j] == 1) {
+               img[(5 * i) + j].src = '/static/1.png';
+            } else if (arr2d[i][j] == 2) {
+               img[(5 * i) + j].src = '/static/2.png';
+            }
+         }
+      }
+   }
+
+   function mclick(obj) {
+      if (flag_over) {
+         alert("이미 게임이 종료되었습니다!");
+         return;
+      }
+      
+      console.log(obj.alt);
+      var str_ij = obj.alt
+      var arr_ij = str_ij.split(",");
+      var i = arr_ij[0];
+      var j = arr_ij[1];
+
+      if (arr2d[i][j] > 0) {
+         return;
+      } else {
+         if (flag_ox) {
+            arr2d[i][j] = 1;
+         } else {
+            arr2d[i][j] = 2;
+         }
+      }
+
+      flag_over = isOver();
+      myrender();
+
+      if (flag_over) {
+         if (flag_ox) {
+            alert("X 승리!");
+         } else {
+            alert("O 승리!");
+         }
+         flag_over = true;
+      }
+
+      flag_ox = !flag_ox;
+
+   }
+
+   function isOver() {
+      var ox = 2;
+      if (flag_ox) {
+         ox = 1;
+      }
+      var a2 = arr2d;
+   
+      if (a2[0][0] == ox && a2[0][1] == ox && a2[0][2] == ox && a2[0][3] == ox && a2[0][4] == ox) {
+         return true;
+      }
+      if (a2[1][0] == ox && a2[1][1] == ox && a2[1][2] == ox && a2[1][3] && a2[1][4]) {
+         return true;
+      }
+      if (a2[2][0] == ox && a2[2][1] == ox && a2[2][2] == ox && a2[2][3] && a2[2][4]) {
+         return true;
+      }
+      if (a2[3][0] == ox && a2[3][1] == ox && a2[3][2] == ox && a2[3][3] && a2[3][4]) {
+         return true;
+      }
+      if (a2[4][0] == ox && a2[4][1] == ox && a2[4][2] == ox && a2[4][3] && a2[4][4]) {
+         return true;
+      }
+
+      if (a2[0][0] == ox && a2[1][0] == ox && a2[2][0] == ox && a2[3][0] && a2[4][0]) {
+         return true;
+      }
+      if (a2[0][1] == ox && a2[1][1] == ox && a2[2][1] == ox && a2[3][1] && a2[4][1]) {
+         return true;
+      }
+      if (a2[0][2] == ox && a2[1][2] == ox && a2[2][2] == ox && a2[3][2] && a2[4][2]) {
+         return true;
+      }
+      if (a2[0][3] == ox && a2[1][3] == ox && a2[2][3] == ox && a2[3][3] && a2[3][4]) {
+         return true;
+      }
+      if (a2[0][4] == ox && a2[1][4] == ox && a2[2][4] == ox && a2[3][4] && a2[4][4]) {
+         return true;
+      }
+
+      if (a2[0][0] == ox && a2[1][1] == ox && a2[2][2] == ox && a2[3][3] && a2[4][4]) {
+         return true;
+      }
+      if (a2[0][4] == ox && a2[1][3] == ox && a2[2][2] == ox && a2[3][1] && a2[4][0]) {
+         return true;
+      }
+
+      return false;
+   }
+   
+   function reset(){
+      for(var i = 0; i < 5; i++){
+         for(var j = 0; j < 5; j++){
+            arr2d[i][j] = 0;
+         }
+      }
+      flag_ox = true;
+      flag_over = false;
+      myrender();
+   }
+   
+</script>
+</head>
+
+<body onload="myrender()">
+tttx5<br/>
+
+<table>
+   <tr>
+      <td><img alt="0,0" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="0,1" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="0,2" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="0,3" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="0,4" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+   </tr>
+   <tr>
+      <td><img alt="1,0" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="1,1" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="1,2" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="1,3" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="1,4" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+   </tr>
+   <tr>
+      <td><img alt="2,0" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="2,1" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="2,2" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="2,3" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="2,4" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+   </tr>
+   <tr>
+      <td><img alt="3,0" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="3,1" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="3,2" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="3,3" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="3,4" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+   </tr>
+   <tr>
+      <td><img alt="4,0" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="4,1" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="4,2" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="4,3" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+      <td><img alt="4,4" class="mimg" src="static/0.png" onclick="mclick(this)"/></td>
+   </tr>
+</table>
+<input type="button" value="초기화" onclick="reset()">
+</body>
+</html>
